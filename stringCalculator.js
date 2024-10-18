@@ -11,10 +11,21 @@ if (numbers.startsWith("//")) {
   numbers = parts.slice(1).join("\n");
 }
 
-const nums = numbers.split(delimiter)
+const nums = numbers.split(delimiter);
+(delimiter);
+  const negatives = nums.filter(num => parseInt(num, 10) < 0);
+  if (negatives.length > 0) {
+    throw new Error(`negative numbers not allowed => ${negatives.join(", ")}`);
+  }
+
 return nums.reduce((sum, num) => sum + parseInt(num, 10), 0);
 }
-
+try{
+    console.log(add("1,-2,3"));// it should throw error
+}
+catch(err){
+console.log(err.message); // negavtive numbers not allowed => -2 
+}
 // Examples
 console.log(add(""));        // Output: 0
 console.log(add("1"));       // Output: 1

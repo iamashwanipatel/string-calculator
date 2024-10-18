@@ -26,6 +26,11 @@ try{
 catch(err){
 console.log(err.message); // negavtive numbers not allowed => -2 
 }
+try {
+    console.log(add("10,-20,-30")); // Should throw error
+  } catch (e) {
+    console.log(e.message); // negative numbers not allowed: -20, -30
+  }  
 // Examples
 console.log(add(""));        // Output: 0
 console.log(add("1"));       // Output: 1
